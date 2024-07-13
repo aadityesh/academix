@@ -1,3 +1,4 @@
+import NavBar from "@/components/NavBar";
 import SideBar from "@/components/SideBar";
 
 export default function DashBoardLayout({
@@ -7,11 +8,14 @@ export default function DashBoardLayout({
 }>) {
   return (
     <div className="h-full">
-      {/* hidden */}
-      <div className=" md:flex h-full flex-col fixed">
+      {/*  */}
+      <div className="md:pl-56 h-[80px] fixed inset-y-0 w-full z-50 ">
+        <NavBar />
+      </div>
+      <div className="hidden md:flex h-full inset-y-0  w-56 flex-col fixed z-50">
         <SideBar />
       </div>
-      {children}
+      <main className="md:pl-56 pt-[80px] h-full">{children}</main>
     </div>
   );
 }
