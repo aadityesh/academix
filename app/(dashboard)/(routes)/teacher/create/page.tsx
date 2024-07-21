@@ -6,6 +6,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import Link from "next/link";
+import toast from "react-hot-toast";
+
 import {
   Form,
   FormControl,
@@ -16,18 +21,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import Link from "next/link";
-import toast from "react-hot-toast";
-
 const formSchema = z.object({
   title: z.string().min(5, {
     message: "*Title (minlength = 5) is required",
   }),
 });
 
-const page = () => {
+const CourseCreate = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -96,4 +96,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default CourseCreate;
