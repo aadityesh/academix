@@ -8,9 +8,9 @@ import CourseProgress from "./CourseProgress";
 
 interface CourseSidebarProps {
   course: Course & {
-    chapters: Chapter & {
+    chapters: (Chapter & {
       userProgress: UserProgress[] | null;
-    };
+    })[];
   };
   progressCount: number;
 }
@@ -42,7 +42,7 @@ async function CourseSidebar({ course, progressCount }: CourseSidebarProps) {
         {/* check purchase & progress */}
 
         <div className="flex flex-col w-full">
-          {course.chapters.map((chapter) => (
+          {course.chapters!.map((chapter) => (
             <CourseSidebarItem
               key={chapter.id}
               id={chapter.id}
