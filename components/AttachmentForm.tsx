@@ -31,10 +31,11 @@ const formSchema = z.object({
 });
 
 const AttachmentForm = ({ initialData, courseId }: AttachmentFormProps) => {
+  console.log(initialData);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      url: initialData?.url || "",
+      url: initialData?.attachments[0].url || "",
     },
   });
 

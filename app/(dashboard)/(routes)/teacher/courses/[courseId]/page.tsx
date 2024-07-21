@@ -43,6 +43,8 @@ const EditCourse = async ({ params }: { params: { courseId: string } }) => {
     },
   });
 
+  console.log(course);
+
   if (!course) {
     return redirect("/");
   }
