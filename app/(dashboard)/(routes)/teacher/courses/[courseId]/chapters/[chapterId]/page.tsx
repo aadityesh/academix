@@ -84,7 +84,7 @@ const EditChapter = async ({
               <div className="flex items-center gap-x-2">
                 <IconBadge variant="default" icon={LayoutDashboard} />
                 <h2 className="text-[20px]">
-                  Customize your chapter: "{chapter.title}"
+                  Customize your chapter: {chapter.title}
                 </h2>
               </div>
               <ChapterTitle

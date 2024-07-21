@@ -84,7 +84,6 @@ const EditCourse = async ({ params }: { params: { courseId: string } }) => {
             <h1 className="text-2xl font-medium">Course Setup</h1>
             <span>Fields Completed: {completionText}</span>
           </div>
-          {/* Chapter Actions */}
           <CourseActions
             disabled={!isComplete}
             courseId={params.courseId}
@@ -94,7 +93,7 @@ const EditCourse = async ({ params }: { params: { courseId: string } }) => {
         <div className="grid grid-col-1 md:grid-cols-2 gap-6 mt-16">
           <div>
             <div className="flex items-center gap-x-2">
-              <IconBadge variant={"default"} icon={LayoutDashboard} />
+              <IconBadge variant="default" icon={LayoutDashboard} />
               <h2>Customize your course</h2>
             </div>
             <TitleForm initialData={course} courseId={course.id} />
@@ -109,7 +108,7 @@ const EditCourse = async ({ params }: { params: { courseId: string } }) => {
               }))}
             />
           </div>
-          <div className="space-y-6 ">
+          <div className="space-y-6">
             <div>
               <div className="flex items-center gap-x-2">
                 <IconBadge variant="default" icon={ListChecks} />
