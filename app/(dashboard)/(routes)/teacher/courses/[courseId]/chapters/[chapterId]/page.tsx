@@ -7,6 +7,7 @@ import ChapterTitle from "@/components/ChapterTitle";
 import { IconBadge } from "@/components/icon-badge";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
+import { Chapter, MuxData } from "@prisma/client";
 import { ArrowLeft, Eye, LayoutDashboard, Settings, Video } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -43,6 +44,8 @@ const EditChapter = async ({
 
   const completionText = `${completedFields}/${totalFields}`;
   const isComplete = requiredFields.every(Boolean);
+
+  console.log(chapter);
 
   return (
     <>
@@ -115,7 +118,7 @@ const EditChapter = async ({
                 <h2 className="text-[20px]">Lectures</h2>
               </div>
               <ChapterLectureForm
-                initialData={chapter}
+                initialData={chapter as Chapter & { muxData: MuxData }}
                 courseId={params.courseId}
                 chapterId={params.chapterId}
               />
