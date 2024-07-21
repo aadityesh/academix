@@ -1,5 +1,5 @@
 import { DataTable } from "@/components/data-table";
-import { Payment, columns } from "@/components/columns";
+import { columns } from "@/components/columns";
 
 import React from "react";
 import { auth } from "@clerk/nextjs/server";
