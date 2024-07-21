@@ -5,7 +5,8 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
@@ -14,18 +15,18 @@ datasource db {
 }
 
 model Course {
-  id          String  @id @default(uuid())
+  id          String    @id @default(uuid())
   userId      String
-  title       String  @db.Text
-  description String? @db.Text
-  imageUrl    String? @db.Text
+  title       String    @db.Text
+  description String?   @db.Text
+  imageUrl    String?   @db.Text
   price       Float?
-  isPublished Boolean @default(false)
+  isPublished Boolean   @default(false)
   categoryId  String?
+  category    Category? @relation(fields: [categoryId], references: [id])
 
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  Category  Category? @relation(fields: [categoryId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   chapters    Chapter[]
   attachments Attachment[]
@@ -107,6 +108,7 @@ model Purchase {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  @@unique([userId, courseId])
   @@index([courseId])
 }
 

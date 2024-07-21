@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { CheckIcon } from "@radix-ui/react-icons";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -18,6 +18,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { ChevronsUpDown } from "lucide-react";
 
 interface ComboBoxProps {
   options: { label: string; value: string }[];
@@ -51,6 +52,7 @@ export function Combobox({ options, value, onChange }: ComboBoxProps) {
             <CommandGroup>
               {options.map((option) => (
                 <CommandItem
+                  className="text-black"
                   key={option.value}
                   value={option.value}
                   onSelect={() => {
@@ -58,13 +60,13 @@ export function Combobox({ options, value, onChange }: ComboBoxProps) {
                     setOpen(false);
                   }}
                 >
-                  <Check
+                  {option.label}
+                  <CheckIcon
                     className={cn(
-                      "mr-2 h-4 w-4",
+                      "ml-auto h-4 w-4",
                       value === option.value ? "opacity-100" : "opacity-0"
                     )}
                   />
-                  {option.label}
                 </CommandItem>
               ))}
             </CommandGroup>
