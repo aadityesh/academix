@@ -45,7 +45,7 @@ const CategoryItem = ({ value, label, icon: Icon }: CategoryItemProps) => {
           isSelected && "border-sky-700 bg-sky-200/20 text-sky-800"
         )}
       >
-        {Icon && <Icon size={20} />}
+        {Icon && <Icon />}
         <div className="truncate">{label}</div>
       </button>
     </>
